@@ -79,7 +79,7 @@ It must fulfils certain requirements:
 
 * Its WSAPIs are typically RESTful and use JSON payloads.
 
-* It must provide a machine-readable description of the requests it accepts and the responses it can give.
+* It must provide a machine-readable description of the requests it accepts and the responses it can give. (This description is posted to Okapi to add a module to a running FOLIO system.)
 
 * Its description most specify what _interfaces_ the module requires and what interfaces it provides.
 
