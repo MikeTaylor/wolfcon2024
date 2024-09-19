@@ -72,7 +72,9 @@ For example, a FOLIO library might need a module for booking rooms.
 
 They could create that module themselves, and make it available for other FOLIO libraries to use. 
 
-This is exactly what happened with Course Reserves, which is now widely used.
+This is exactly what happened with Course Reserves, which was developed by Index Data with funding from FLO, the Fenway Library Organization in Boston.
+
+It's now used by more or less all US Academic libraries on FOLIO.
 
 FOLIO was started in 2015, and the first modules (mod-users and mod-inventory) came into existence in 2016.
 
