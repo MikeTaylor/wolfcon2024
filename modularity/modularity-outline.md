@@ -10,8 +10,10 @@
 * [7. Implications](#7-implications)
 
 
-Here is the [published abstract](https://wolfcon2024.sched.com/event/1eesf/a-case-study-in-folio-modularity-replacing-mod-ldp-with-mod-reporting)
-
+Links:
+[published abstract](https://wolfcon2024.sched.com/event/1eesf/a-case-study-in-folio-modularity-replacing-mod-ldp-with-mod-reporting),
+[Google slides](https://docs.google.com/presentation/d/1KhL_49mMxrnKKYEFhxFujIq81TN6jR1sMFwufeSzULM/edit#slide=id.g30261fe52c6_0_603),
+[exported PDF](A-case-study-in-FOLIO-modularity.pdf)
 
 ## 1. Philosophy
 
