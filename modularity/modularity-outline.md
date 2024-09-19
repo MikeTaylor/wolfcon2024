@@ -2,11 +2,11 @@
 
 <!-- md2toc -l 2 modularity-outline.md -->
 * [Philosophy](#philosophy)
-* [Modularity](#modularity)
-* [Benefits](#benefits)
-* [Ecosystem](#ecosystem)
-* [Details](#details)
-* [Case-study](#case-study)
+* [Modularity in FOLIO](#modularity-in-folio)
+* [Benefits of the modular architecture](#benefits-of-the-modular-architecture)
+* [An ecosystem of modules](#an-ecosystem-of-modules)
+* [Some light technical details](#some-light-technical-details)
+* [A case-study: mod-reporting](#a-case-study-mod-reporting)
 * [Implications](#implications)
 
 
@@ -21,18 +21,20 @@ Here is the [published abstract](https://wolfcon2024.sched.com/event/1eesf/a-cas
 
 The design of FOLIO arose from a philosophy
 
-* Communities do things better than organizations.
+* Communities **do things better** than top-down organizations.
 
-* FOLIO belongs to the whole library community, not just to a vendor.
+* Communities **do better things** than top-down organizations.
+
+* FOLIO belongs to the whole library community, not to a vendor.
 
 * Any member of the community should be able to contribute.
 
-* No magic access for insiders (we eat our own dogfood).
+There is no magic access for insiders: we eat our own dogfood.
 
 
-## Modularity
+## Modularity in FOLIO
 
-So from the earliest design of the FOLIO platform, it was constructed to be modular.
+That philosophy is reflected in the design of FOLIO: from the start, it was constructed to be modular.
 
 The heart of every FOLIO system is a well-defined platform consisting of:
 
@@ -40,14 +42,14 @@ The heart of every FOLIO system is a well-defined platform consisting of:
 
 * Well-defined specifications for what a module is (discussed below)
 
-* Ways for modules to describe themselves in a machine-readable way
-
 * A handful of core modules to handle authentication and related concerns
 
 This provides a context in which any module from any source can be deployed.
 
+(The UI is also modular, but we're not much concerned with that here.)
 
-## Benefits
+
+## Benefits of the modular architecture
 
 This vision of modularity is crucial to FOLIO’s appeal to the library community, because it lowers the bar to participation:
 
@@ -57,35 +59,39 @@ This vision of modularity is crucial to FOLIO’s appeal to the library communit
 
   * Or hire developers to do so
 
-  * Or contribute to funding modules that will be of use to a broader community
+  * Or contribute to crowdfunding modules that will be of use to a broader community
 
 * Different libraries can deploy different sets of modules, lowering operating costs.
 
 None of this needs “permission” from a central authority.
 
 
-## Ecosystem
+## An ecosystem of modules
 
-For example, a FOLIO library might a module for booking rooms.
+For example, a FOLIO library might need a module for booking rooms.
 
 They could create that module themselves, and make it available for other FOLIO libraries to use. 
 
 This is exactly what happened with Course Reserves, which is now widely used.
 
-FOLIO was started in 2015. In the nine years since, it has grown to 114 back-end modules (as of the current snapshot build).
+FOLIO was started in 2015, and the first modules (mod-users and mod-inventory) came into existence in 2016.
 
-How are modules made available to the community in trusted form?
+In the eight years since, it has grown to 114 back-end modules (as of the current snapshot build).
 
-This is more of a social problem than technical one. We can talk more about it in the Q&A if there is interest.
+> SIDEBAR
+>
+> How are modules made available to the community in trusted form?
+>
+> This is more of a social problem than technical one. We can talk more about it in the Q&A if there is interest.
 
 
-## Details
+## Some light technical details
 
 A FOLIO module is a computer program.
 
-It can be written in any language, though most are in Java.
+It can be written in any language (though most are in Java).
 
-It must fulfils certain requirements:
+It must fulfil certain requirements:
 
 * It must listen on a port and respond to WSAPI requests.
 
@@ -93,26 +99,30 @@ It must fulfils certain requirements:
 
 * It must provide a machine-readable description of the requests it accepts and the responses it can give. (This description is posted to Okapi to add a module to a running FOLIO system.)
 
-* Its description most specify what _interfaces_ the module requires and what interfaces it provides.
-
 * Its description can define permissions and specify which of them are required to access which WSAPI endpoints.
 
-FOLIO enforces a partitioning of concerns, with contract-defined API-based communication between modules.
+* Its description must specify what _interfaces_ the module requires and what interfaces it provides.
+
+* All communication between modules is via these interfaces: _there is no shared database_.
 
 All dependencies are on interfaces, not modules (which are implementations).
+
+FOLIO enforces a partitioning of concerns: integration between modules is by contract-defined API-based communication.
 
 Multiple modules can provide alternative implementations of the same interface.
 
 Consumers of that interface neither know nor care what module implements it.
 
 
-## Case-study
+## A case-study: mod-reporting
 
-FOLIO’s Reporting app consists of a UI module (ui-ldp) and a back-end module (mod-ldp) which communicates on the UI module’s behalf with the MetaDB datastore.
+FOLIO’s Reporting app allows users to search in Metadb, relational database that contains normalized records that are continually harvested from FOLIO as they change.
+
+Apart from the UI component, the app is implemented by a back-end module (mod-ldp) which communicates on the UI behalf with Metadb.
 
 mod-ldp is old code, written by a third party using tools alien to its maintainers, insecure in places, and badly in need of updates.
 
-We decided to re-implement mod-ldp as a new module, mod-reporting, written in Go.
+Rather than fix it, we decided to replace mod-ldp with a new module, mod-reporting, written in Go.
 
 The new module provides the same version of the same interface as the old.
 
@@ -124,7 +134,7 @@ The existing UI module has not been changed to accommodate it, and continues to 
 
 In fact, it's been running on Snapshot for a week and none of you noticed :-)
 
-What difficulties we experienced were in CI and CD.
+(What difficulties we experienced were in CI and CD.)
 
 
 ## Implications
@@ -142,5 +152,7 @@ For example:
 * A plug-compatible mod-fqm-manager replacement that runs queries against MetaDB
 
 Crucially, _anyone_ can do this.
+
+Modularity is empowering!
 
 
