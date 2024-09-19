@@ -1,19 +1,19 @@
 # A case-study in modularity -- outline
 
 <!-- md2toc -l 2 modularity-outline.md -->
-* [Philosophy](#philosophy)
-* [Modularity in FOLIO](#modularity-in-folio)
-* [Benefits of the modular architecture](#benefits-of-the-modular-architecture)
-* [An ecosystem of modules](#an-ecosystem-of-modules)
-* [Some light technical details](#some-light-technical-details)
-* [A case-study: mod-reporting](#a-case-study-mod-reporting)
-* [Implications](#implications)
+* [1. Philosophy](#1-philosophy)
+* [2. Modularity in FOLIO](#2-modularity-in-folio)
+* [3. Benefits of the modular architecture](#3-benefits-of-the-modular-architecture)
+* [4. An ecosystem of modules](#4-an-ecosystem-of-modules)
+* [5. Some light technical details](#5-some-light-technical-details)
+* [6. A case-study: mod-reporting](#6-a-case-study-mod-reporting)
+* [7. Implications](#7-implications)
 
 
 Here is the [published abstract](https://wolfcon2024.sched.com/event/1eesf/a-case-study-in-folio-modularity-replacing-mod-ldp-with-mod-reporting)
 
 
-## Philosophy
+## 1. Philosophy
 
 > "I'm afraid I'm a practical man", said the doctor with gruff humour, "and I don't bother much about [...] philosophy."\
 > "You'll never be a practical man till you do", said Father Brown.\
@@ -32,7 +32,7 @@ The design of FOLIO arose from a philosophy
 There is no magic access for insiders: we eat our own dogfood.
 
 
-## Modularity in FOLIO
+## 2. Modularity in FOLIO
 
 That philosophy is reflected in the design of FOLIO: from the start, it was constructed to be modular.
 
@@ -49,7 +49,7 @@ This provides a context in which any module from any source can be deployed.
 (The UI is also modular, but we're not much concerned with that here.)
 
 
-## Benefits of the modular architecture
+## 3. Benefits of the modular architecture
 
 This vision of modularity is crucial to FOLIO’s appeal to the library community, because it lowers the bar to participation:
 
@@ -66,7 +66,7 @@ This vision of modularity is crucial to FOLIO’s appeal to the library communit
 None of this needs “permission” from a central authority.
 
 
-## An ecosystem of modules
+## 4. An ecosystem of modules
 
 For example, a FOLIO library might need a module for booking rooms.
 
@@ -87,7 +87,7 @@ In the eight years since, it has grown to 114 back-end modules (as of the curren
 > This is more of a social problem than technical one. We can talk more about it in the Q&A if there is interest.
 
 
-## Some light technical details
+## 5. Some light technical details
 
 A FOLIO module is a computer program.
 
@@ -116,7 +116,7 @@ Multiple modules can provide alternative implementations of the same interface.
 Consumers of that interface neither know nor care what module implements it.
 
 
-## A case-study: mod-reporting
+## 6. A case-study: mod-reporting
 
 FOLIO’s Reporting app allows users to search in Metadb, relational database that contains normalized records that are continually harvested from FOLIO as they change.
 
@@ -139,7 +139,7 @@ In fact, it's been running on Snapshot for a week and none of you noticed :-)
 (What difficulties we experienced were in CI and CD.)
 
 
-## Implications
+## 7. Implications
 
 Our experience provides an example of how such code upgrades can be performed.
 
