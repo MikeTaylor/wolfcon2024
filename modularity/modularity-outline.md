@@ -118,9 +118,9 @@ Consumers of that interface neither know nor care what module implements it.
 
 ## 6. A case-study: mod-reporting
 
-FOLIO’s Reporting app allows users to search in Metadb, relational database that contains normalized records that are continually harvested from FOLIO as they change.
+FOLIO’s Reporting app allows users to search in Metadb, a relational database that contains normalized records that are continually harvested from FOLIO as they change.
 
-Apart from the UI component, the app is implemented by a back-end module (mod-ldp) which communicates on the UI behalf with Metadb.
+Apart from the UI component, the app is implemented by a back-end module (mod-ldp) which communicates on the UI's behalf with Metadb.
 
 mod-ldp is old code, written by a third party using tools alien to its maintainers, insecure in places, and badly in need of updates.
 
