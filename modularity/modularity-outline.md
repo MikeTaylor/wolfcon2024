@@ -3,9 +3,10 @@
 <!-- md2toc -l 2 modularity-outline.md -->
 * [Philosophy](#philosophy)
 * [Modularity](#modularity)
-* [Benfits](#benfits)
+* [Benefits](#benefits)
+* [Ecosystem](#ecosystem)
 * [Details](#details)
-* [A case-study in reporting](#a-case-study-in-reporting)
+* [Case-study](#case-study)
 * [Implications](#implications)
 
 
@@ -14,8 +15,8 @@ Here is the [published abstract](https://wolfcon2024.sched.com/event/1eesf/a-cas
 
 ## Philosophy
 
-> 'I'm afraid I'm a practical man,' said the doctor with gruff humour, 'and I don't bother much about [...] philosophy.'\
-> 'You'll never be a practical man till you do,' said Father Brown.\
+> "I'm afraid I'm a practical man", said the doctor with gruff humour, "and I don't bother much about [...] philosophy."\
+> "You'll never be a practical man till you do", said Father Brown.\
 > -- G. K. Chesterton, _The Dagger with Wings_.
 
 The design of FOLIO arose from a philosophy
@@ -46,7 +47,7 @@ The heart of every FOLIO system is a well-defined platform consisting of:
 This provides a context in which any module from any source can be deployed.
 
 
-## Benfits
+## Benefits
 
 This vision of modularity is crucial to FOLIO’s appeal to the library community, because it lowers the bar to participation:
 
@@ -54,17 +55,28 @@ This vision of modularity is crucial to FOLIO’s appeal to the library communit
 
 * Individual libraries may create modules that meet their needs
 
-* Or hire developers to do so
+  * Or hire developers to do so
 
-* Or contribute to funding modules that will be of use to a broader community
+  * Or contribute to funding modules that will be of use to a broader community
 
-All without needing “permission” from a central authority.
+* Different libraries can deploy different sets of modules, lowering operating costs.
+
+None of this needs “permission” from a central authority.
+
+
+## Ecosystem
 
 For example, a FOLIO library might a module for booking rooms.
 
 They could create that module themselves, and make it available for other FOLIO libraries to use. 
 
-(This is what happened with Course Reserves.)
+This is exactly what happened with Course Reserves, which is now widely used.
+
+FOLIO was started in 2015. In the nine years since, it has grown to 114 back-end modules (as of the current snapshot build).
+
+How are modules made available to the community in trusted form?
+
+This is more of a social problem than technical one. We can talk more about it in the Q&A if there is interest.
 
 
 ## Details
@@ -94,7 +106,7 @@ Multiple modules can provide alternative implementations of the same interface.
 Consumers of that interface neither know nor care what module implements it.
 
 
-## A case-study in reporting
+## Case-study
 
 FOLIO’s Reporting app consists of a UI module (ui-ldp) and a back-end module (mod-ldp) which communicates on the UI module’s behalf with the MetaDB datastore.
 
