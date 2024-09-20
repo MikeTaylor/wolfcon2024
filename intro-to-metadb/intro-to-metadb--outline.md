@@ -18,13 +18,15 @@ Topics to _avoid_:
 
 ## Introduction
 
-Why not just run SQL queries against the FOLIO database?
-* All the data is in JSON so queries would have to transform it
-* The records are highly denormalized with data fragments split across tables.
-* No record is kept of old data
-* Performance implications of running expensive reports
+Everybody needs reports on their FOLIO system.
 
-What's needed is a separately provisioned database, with a structure optimised for report-type queries, containing old data as well as the present data, and that stays up to date as the FOLIO database changes.
+Why not just run SQL queries against the FOLIO database?
+* No record is kept of old data.
+* All the data is in JSON so queries would have to transform it.
+* The records are highly denormalized with data fragments split across tables.
+* Running expensive reports has performance implications for regular use.
+
+What's needed is a separately provisioned database, containing old data as well as the present data, with a structure optimised for report-type queries, and that stays up to date as the FOLIO database changes.
 
 That's Metadb.
 
@@ -33,7 +35,7 @@ That's Metadb.
 
 FOLIO stores its data in a Postgres database.
 
-When changes are made in this database by the day-to-day operation of the FOLIO ILS, change records are written to a replication slot.
+When changes are made in this database by the day-to-day operation of the FOLIO ILS, change records are written to a Postgres replication slot.
 
 Metadb harvests these change records to keep its own database up to date.
 
@@ -41,13 +43,13 @@ Metadb harvests these change records to keep its own database up to date.
 
 Old versions of changed records are retained and accessible via historical tables that record all previous versions of each record with the start and end of their validity period.
 
-Each record coming into Metadb has its JSON blog extracted and transformed into SQL-level fields.
-
-Each record coming into Metadb goes through a further series of transformations that include denormalization to include data from related records.
-
-For example, user records in Metadb contain not just a `userGroupId` but an expanded `userGroup` sub-record including the name of the group that the user belongs to.
+Each record coming into Metadb has its JSON blob extracted and transformed into SQL-level fields.
 
 MARC records, which are stored as opaque blobs in FOLIO, are expanded into queryable tables.
+
+Periodic queries, run automatically, generate derived tables that contain denormalized versions of FOLIO records which include data from related records.
+
+For example, user records in Metadb's `users_groups` table contain not just a `patron_group` ID column but also a `group` column containing the name of the group that the user belongs to.
 
 
 ## How data gets from FOLIO into Metadb
@@ -73,9 +75,10 @@ This provides buffering, robustness and database-independence.
 
 The Metadb database can be queried using SQL:
 * On the command-line with `psql`
-* Using a GUI like DBeaver
+* Using a GUI like DBeaver or Tableau (Suzette will tell us more about this)
+* Directly within FOLIO (Scott will tell us more about this)
 * Programatically by client software
 
-It is also available to use directly from FOLIO using the Reporting app.
+And what kinds of queries might you run? Sharon will tell us more about this!
 
 
