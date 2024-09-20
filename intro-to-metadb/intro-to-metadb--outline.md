@@ -4,7 +4,7 @@
 * [Introduction](#introduction)
 * [How Metadb works](#how-metadb-works)
 * [How data gets from FOLIO into Metadb](#how-data-gets-from-folio-into-metadb)
-* [How the Metadb data can be interrogated](#how-the-metadb-data-can-be-interrogated)
+* [How Metadb data can be interrogated](#how-metadb-data-can-be-interrogated)
 
 
 (30 minutes including Q&A)
@@ -71,7 +71,7 @@ Instead we use a more flexible but complex system:
 This provides buffering, robustness and database-independence.
 
 
-## How the Metadb data can be interrogated
+## How Metadb data can be interrogated
 
 The Metadb database can be queried using SQL:
 * On the command-line with `psql`
