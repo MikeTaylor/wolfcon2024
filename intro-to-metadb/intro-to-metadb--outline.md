@@ -1,4 +1,4 @@
-# Setting Up and Using a Metadb Reporting Database to Provide Your Institution with Real-Time Data Reports from FOLIO
+# Setting up and using a Metadb reporting database to provide your institution with real-time data reports from FOLIO
 
 <!-- md2toc -l 2 intro-to-metadb--outline.md -->
 * [Introduction](#introduction)
