@@ -7,6 +7,11 @@
 * [How Metadb data can be interrogated](#how-metadb-data-can-be-interrogated)
 
 
+Links:
+[published abstract](https://wolfcon2024.sched.com/event/1eevH/how-to-use-metadb-for-folio-reporting),
+[Google slides](https://docs.google.com/presentation/d/1C3razh3affF-af98Fg791hg426MnU-y_H0lrtn6so_I/edit#slide=id.g302f2c9a835_0_201),
+[exported PDF](Setting-Up-and-Using-a-Metadb-Reporting-Database-to-Provide-Your-Institution-with-Real-Time-Data-Reports-from-FOLIO.pdf)
+
 (30 minutes including Q&A)
 
 Topics to _avoid_:
